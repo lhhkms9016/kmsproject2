@@ -3,7 +3,7 @@ import pandas as pd
 import altair as alt
 
 # Streamlit app title
-st.title('Network Traffic Data Analysis')
+st.title('회선 트래픽 분석 (2024년 5월)')
 
 # File uploader for CSV files
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
@@ -51,7 +51,7 @@ if uploaded_file is not None:
     original_grouped_df['max_out_mbps'] = original_grouped_df['max_out_mbps'].round(2)
 
     # Display the grouped dataframe using Streamlit for original data
-    st.subheader('Filtered Data (Grouped by type and categories)')
+    st.subheader('회선 유형별 데이터')
     st.dataframe(original_grouped_df)
 
     # Grouping by the day column and calculating mean for in_mbps and out_mbps
@@ -65,7 +65,7 @@ if uploaded_file is not None:
     grouped_df['average_out_mbps'] = grouped_df['average_out_mbps'].round(2)
 
     # Display the grouped dataframe using Streamlit for grouped data by day
-    st.subheader('Grouped Data (By Day)')
+    st.subheader('1_일자별 평균 데이터')
     st.dataframe(grouped_df)
 
     # Creating a line chart for in_mbps and out_mbps average values by day
@@ -95,7 +95,7 @@ if uploaded_file is not None:
     weekday_grouped_df['average_out_mbps'] = weekday_grouped_df['average_out_mbps'].round(2)
 
     # Display the grouped dataframe using Streamlit for grouped data by weekday2
-    st.subheader('Grouped Data (By Weekday)')
+    st.subheader('2_요일별 평균 데이터')
     st.dataframe(weekday_grouped_df)
 
     # Creating a line chart for in_mbps and out_mbps average values by weekday2
@@ -122,7 +122,7 @@ if uploaded_file is not None:
     hourly_grouped_df['average_out_mbps'] = hourly_grouped_df['average_out_mbps'].round(2)
 
     # Display the grouped dataframe using Streamlit for grouped data by hour
-    st.subheader('Grouped Data (By Hour)')
+    st.subheader('시간대별 평균 데이터')
     st.dataframe(hourly_grouped_df)
 
     # Creating a line chart for in_mbps and out_mbps average values by hour
